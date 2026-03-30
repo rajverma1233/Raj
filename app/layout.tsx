@@ -3,8 +3,8 @@ import './globals.css'; // Global styles
 import { AuthProvider } from '@/components/AuthProvider';
 
 export const metadata: Metadata = {
-  title: 'My Google AI Studio App',
-  description: 'My Google AI Studio App',
+  title: 'Pulzo Live | Real-Time EV Tracking & Smart Data Analytics',
+  description: 'Experience Pulzo Live: The ultimate high-fidelity dashboard for real-time EV tracking, live charts, and smart odds with pixel-perfect data analytics.',
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
