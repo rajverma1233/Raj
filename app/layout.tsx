@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import './globals.css'; // Global styles
 import { AuthProvider } from '@/components/AuthProvider';
+import SpeedOptimizations from '@/components/SpeedOptimizations';
 
 export const metadata: Metadata = {
   title: 'Pulzo Live | Real-Time EV Tracking & Smart Data Analytics',
@@ -13,9 +14,28 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [
+                {
+                  source: "document",
+                  where: {
+                    and: [{ href_matches: "/*" }]
+                  },
+                  eagerness: "moderate"
+                }
+              ]
+            })
+          }}
+        />
+      </head>
       <body suppressHydrationWarning>
         <AuthProvider>
           {children}
+          <SpeedOptimizations />
         </AuthProvider>
       </body>
     </html>
