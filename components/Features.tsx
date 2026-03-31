@@ -5,35 +5,35 @@ import { LineChart, Activity, BellRing, Trophy, Lightbulb } from 'lucide-react';
 
 const features = [
   {
-    icon: <LineChart className="w-8 h-8 text-blue-400" />,
+    icon: <LineChart className="w-8 h-8 text-blue-400" aria-hidden="true" />,
     title: 'Live EV Tracking',
     description: 'Track expected value in real time and instantly see which packs offer the best profit potential.',
     color: 'from-blue-500/20 to-blue-500/0',
     borderColor: 'group-hover:border-blue-500/50',
   },
   {
-    icon: <Activity className="w-8 h-8 text-purple-400" />,
+    icon: <Activity className="w-8 h-8 text-purple-400" aria-hidden="true" />,
     title: 'Live EV Chart',
     description: 'Visualize EV trends in real time with dynamic charts to understand when opportunities are rising or falling',
     color: 'from-purple-500/20 to-purple-500/0',
     borderColor: 'group-hover:border-purple-500/50',
   },
   {
-    icon: <BellRing className="w-8 h-8 text-emerald-400" />,
+    icon: <BellRing className="w-8 h-8 text-emerald-400" aria-hidden="true" />,
     title: '+EV Alerts',
     description: 'Get instant alerts when packs turn profitable so you never miss a high-value opportunity.',
     color: 'from-emerald-500/20 to-emerald-500/0',
     borderColor: 'group-hover:border-emerald-500/50',
   },
   {
-    icon: <Trophy className="w-8 h-8 text-pink-400" />,
+    icon: <Trophy className="w-8 h-8 text-pink-400" aria-hidden="true" />,
     title: 'Pack Rankings',
     description: 'Compare all available packs and see which ones rank highest based on real-time expected value.',
     color: 'from-pink-500/20 to-pink-500/0',
     borderColor: 'group-hover:border-pink-500/50',
   },
   {
-    icon: <Lightbulb className="w-8 h-8 text-amber-400" />,
+    icon: <Lightbulb className="w-8 h-8 text-amber-400" aria-hidden="true" />,
     title: 'Smart Odds (Calibrated Odds)',
     description: 'Access calibrated odds based on real data to understand true probabilities beyond displayed pack chances.',
     color: 'from-amber-500/20 to-amber-500/0',

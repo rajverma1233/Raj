@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+@theme {
+  /* Subtle contrast adjustments to meet WCAG 2.1 AA standards */
+  --color-zinc-400: #a8a8b1; /* Lightened for better contrast on dark backgrounds */
+  --color-zinc-500: #7f7f88; /* Lightened to ensure >4.5:1 contrast ratio on zinc-900 */
+  --color-zinc-900: #141417; /* Darkened slightly for deeper background */
+  --color-zinc-950: #050506; /* Darkened slightly for deeper background */
+  --color-blue-500: #4b8df6; /* Lightened slightly for better visibility */
+  --color-red-500: #f05252; /* Adjusted for better contrast */
+  --color-green-500: #2bcf66; /* Adjusted for better contrast */
+}

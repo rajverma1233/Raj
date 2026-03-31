@@ -52,7 +52,7 @@ export default function Pricing() {
             >
               {plan.highlighted && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm font-bold px-4 py-1 rounded-full flex items-center gap-1 shadow-lg">
-                  <Star className="w-4 h-4 fill-current" />
+                  <Star className="w-4 h-4 fill-current" aria-hidden="true" />
                   Most Popular
                 </div>
               )}
@@ -70,19 +70,20 @@ export default function Pricing() {
               <ul className="space-y-4 mb-10 flex-grow">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-300">
-                    <CheckCircle2 className={`w-5 h-5 shrink-0 ${plan.highlighted ? 'text-purple-400' : 'text-gray-500'}`} />
+                    <CheckCircle2 className={`w-5 h-5 shrink-0 ${plan.highlighted ? 'text-purple-400' : 'text-gray-500'}`} aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <Link href="/checkout" className="w-full">
+              <Link href="/checkout" className="w-full" aria-label={`Join Now for ${plan.name} plan`} tabIndex={0}>
                 <button
                   className={`w-full py-4 rounded-xl font-bold text-lg transition-all ${
                     plan.highlighted
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] hover:scale-[1.02]'
                       : 'bg-white/5 text-white border border-white/10 hover:bg-white/10'
                   }`}
+                  tabIndex={-1}
                 >
                   Join Now
                 </button>

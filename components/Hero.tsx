@@ -70,12 +70,12 @@ export default function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/checkout" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-600 text-white font-semibold rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(147,51,234,0.4)] w-full sm:w-auto">
+              <Link href="/checkout" className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-purple-600 text-white font-semibold rounded-xl overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(147,51,234,0.4)] w-full sm:w-auto" aria-label="Join Now and go to checkout" tabIndex={0}>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <span className="relative">Join Now</span>
-                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
-              <button className="px-8 py-4 bg-white/5 text-white font-semibold rounded-xl border border-white/10 hover:bg-white/10 transition-colors w-full sm:w-auto">
+              <button className="px-8 py-4 bg-white/5 text-white font-semibold rounded-xl border border-white/10 hover:bg-white/10 transition-colors w-full sm:w-auto" aria-label="View Demo" tabIndex={0}>
                 View Demo
               </button>
             </div>
@@ -98,7 +98,7 @@ export default function Hero() {
                   </div>
                 </div>
                 <div className="px-3 py-1 bg-green-500/20 text-green-400 text-sm font-medium rounded-full flex items-center gap-1">
-                  <TrendingUp className="w-4 h-4" />
+                  <TrendingUp className="w-4 h-4" aria-hidden="true" />
                   +14.2%
                 </div>
               </div>
@@ -153,7 +153,7 @@ export default function Hero() {
               className="absolute -top-6 -right-6 bg-white/[0.05] border border-white/10 backdrop-blur-md p-4 rounded-xl shadow-xl flex items-center gap-3"
             >
               <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">
-                <Activity className="w-5 h-5" />
+                <Activity className="w-5 h-5" aria-hidden="true" />
               </div>
               <div>
                 <div className="text-xs text-gray-400">Live EV</div>
@@ -167,7 +167,7 @@ export default function Hero() {
               className="absolute -bottom-6 -left-6 bg-white/[0.05] border border-white/10 backdrop-blur-md p-4 rounded-xl shadow-xl flex items-center gap-3"
             >
               <div className="p-2 bg-purple-500/20 rounded-lg text-purple-400">
-                <Users className="w-5 h-5" />
+                <Users className="w-5 h-5" aria-hidden="true" />
               </div>
               <div>
                 <div className="text-xs text-gray-400">Active Users</div>

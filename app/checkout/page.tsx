@@ -73,8 +73,11 @@ export default function CheckoutPage() {
                   ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]' 
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
+              aria-label="Select India region"
+              aria-pressed={region === 'india'}
+              tabIndex={0}
             >
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4" aria-hidden="true" />
               🇮🇳 India (Local)
             </button>
             <button
@@ -84,8 +87,11 @@ export default function CheckoutPage() {
                   ? 'bg-blue-600 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]' 
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
               }`}
+              aria-label="Select Global region"
+              aria-pressed={region === 'global'}
+              tabIndex={0}
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="w-4 h-4" aria-hidden="true" />
               🇺🇸 Global (USD)
             </button>
           </div>
@@ -125,11 +131,11 @@ export default function CheckoutPage() {
                 
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="text-slate-300">Real-time +EV Alerts</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="text-slate-300">Multi-Market Tracking</span>
                   </li>
                   
@@ -146,22 +152,22 @@ export default function CheckoutPage() {
                       {region === 'india' ? (
                         <>
                           <li className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                             <span className="text-slate-300">UPI Autopay Supported</span>
                           </li>
                           <li className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                             <span className="text-slate-300">Hinglish Support</span>
                           </li>
                         </>
                       ) : (
                         <>
                           <li className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                             <span className="text-slate-300">Global Analytics</span>
                           </li>
                           <li className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
+                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" aria-hidden="true" />
                             <span className="text-slate-300">PSA/eBay Data</span>
                           </li>
                         </>
@@ -198,6 +204,10 @@ export default function CheckoutPage() {
                     <button 
                       onClick={() => setShowUpiOptions(!showUpiOptions)}
                       className="w-full group relative flex items-center justify-between py-4 px-6 bg-slate-800 hover:bg-slate-700 border border-slate-700 hover:border-blue-500/50 rounded-2xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(59,130,246,0.2)]"
+                      aria-expanded={showUpiOptions}
+                      aria-controls="upi-options"
+                      aria-label="Toggle UPI payment options"
+                      tabIndex={0}
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-600/0 via-blue-600/10 to-blue-600/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       <div className="flex items-center gap-3 relative z-10">
@@ -225,6 +235,9 @@ export default function CheckoutPage() {
                                     setUpiId(''); // Reset input when switching
                                   }} 
                                   className={`w-full flex items-center justify-between p-4 bg-slate-900/50 border ${activeUpiMethod === app.id ? 'border-blue-500/50' : 'border-slate-800 hover:border-slate-700'} rounded-xl transition-colors`}
+                                  aria-expanded={activeUpiMethod === app.id}
+                                  aria-label={`Select ${app.name}`}
+                                  tabIndex={0}
                                 >
                                   <div className="flex items-center gap-3">
                                     <div className={`w-8 h-8 rounded-full ${app.bg} flex items-center justify-center text-xs font-bold ${app.text}`}>{app.icon}</div>
@@ -250,11 +263,15 @@ export default function CheckoutPage() {
                                             onChange={(e) => setUpiId(e.target.value)}
                                             placeholder={app.placeholder} 
                                             className="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all" 
+                                            aria-label={`Enter your ${app.name} UPI ID`}
+                                            tabIndex={0}
                                           />
                                           <button 
                                             onClick={() => handleVerifyUpi(app.id)} 
                                             disabled={processing === app.id}
                                             className="px-4 py-2 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center min-w-[80px]"
+                                            aria-label={`Verify ${app.name} UPI ID`}
+                                            tabIndex={0}
                                           >
                                             {processing === app.id ? <span className="animate-pulse">...</span> : 'Verify'}
                                           </button>
@@ -279,13 +296,13 @@ export default function CheckoutPage() {
                       </div>
                     </div>
 
-                    <button className="w-full group flex items-center justify-center gap-3 py-4 px-6 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 rounded-2xl transition-all duration-300">
-                      <CreditCard className="w-5 h-5 text-slate-400 group-hover:text-slate-300" />
+                    <button className="w-full group flex items-center justify-center gap-3 py-4 px-6 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 rounded-2xl transition-all duration-300" aria-label="Pay with Credit or Debit Card" tabIndex={0}>
+                      <CreditCard className="w-5 h-5 text-slate-400 group-hover:text-slate-300" aria-hidden="true" />
                       <span className="font-medium text-slate-300 group-hover:text-white">Credit / Debit Card</span>
                     </button>
 
                     <div className="mt-8 flex items-center justify-center gap-2 text-sm text-slate-500">
-                      <Lock className="w-4 h-4" />
+                      <Lock className="w-4 h-4" aria-hidden="true" />
                       <span>Secured by <span className="font-semibold text-slate-300">Razorpay</span></span>
                     </div>
                   </div>
@@ -294,13 +311,13 @@ export default function CheckoutPage() {
                     <h3 className="text-lg font-semibold text-white mb-4">Payment Details</h3>
                     
                     {/* 1-Click Option */}
-                    <button className="w-full group relative flex items-center justify-center gap-2 py-3.5 px-6 bg-[#00D632]/10 hover:bg-[#00D632]/20 border border-[#00D632]/20 hover:border-[#00D632]/50 rounded-2xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(0,214,50,0.2)]">
+                    <button className="w-full group relative flex items-center justify-center gap-2 py-3.5 px-6 bg-[#00D632]/10 hover:bg-[#00D632]/20 border border-[#00D632]/20 hover:border-[#00D632]/50 rounded-2xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(0,214,50,0.2)]" aria-label="Pay with Cash App Pay" tabIndex={0}>
                       <span className="font-bold text-[#00D632] tracking-tight text-lg">$ Cash App Pay</span>
                     </button>
 
-                    <button className="w-full group relative flex items-center justify-center gap-2 py-3.5 px-6 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/50 rounded-2xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]">
+                    <button className="w-full group relative flex items-center justify-center gap-2 py-3.5 px-6 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/20 hover:border-indigo-500/50 rounded-2xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(99,102,241,0.2)]" aria-label="Pay with Link" tabIndex={0}>
                       <span className="font-semibold text-indigo-400">Pay with Link</span>
-                      <ArrowRight className="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-indigo-400 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                     </button>
 
                     <div className="relative py-2">
@@ -317,11 +334,13 @@ export default function CheckoutPage() {
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-slate-400">Card Information</label>
                         <div className="relative">
-                          <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
+                          <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" aria-hidden="true" />
                           <input 
                             type="text" 
                             placeholder="Card number" 
                             className="w-full bg-slate-950 border border-slate-800 rounded-t-xl py-3.5 pl-12 pr-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                            aria-label="Card number"
+                            tabIndex={0}
                           />
                         </div>
                         <div className="flex -mt-2">
@@ -329,16 +348,20 @@ export default function CheckoutPage() {
                             type="text" 
                             placeholder="MM / YY" 
                             className="w-1/2 bg-slate-950 border border-slate-800 border-t-0 border-r-0 rounded-bl-xl py-3.5 px-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                            aria-label="Expiration date"
+                            tabIndex={0}
                           />
                           <input 
                             type="text" 
                             placeholder="CVC" 
                             className="w-1/2 bg-slate-950 border border-slate-800 border-t-0 rounded-br-xl py-3.5 px-4 text-white placeholder:text-slate-600 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all"
+                            aria-label="CVC code"
+                            tabIndex={0}
                           />
                         </div>
                       </div>
                       
-                      <button className="w-full group relative flex items-center justify-center gap-2 py-4 px-6 bg-blue-600 hover:bg-blue-500 rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+                      <button className="w-full group relative flex items-center justify-center gap-2 py-4 px-6 bg-blue-600 hover:bg-blue-500 rounded-xl transition-all duration-300 overflow-hidden hover:shadow-[0_0_25px_rgba(37,99,235,0.4)]" aria-label="Subscribe" tabIndex={0}>
                         <span className="font-semibold text-white">Subscribe</span>
                       </button>
                     </div>
@@ -353,7 +376,7 @@ export default function CheckoutPage() {
 
       {/* Footer Badge */}
       <div className="mt-8 flex items-center gap-2 text-sm text-slate-500">
-        <Lock className="w-4 h-4" />
+        <Lock className="w-4 h-4" aria-hidden="true" />
         <span>Secure 256-bit SSL Encryption</span>
       </div>
 

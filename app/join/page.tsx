@@ -60,12 +60,14 @@ export default function JoinPage() {
                 <label className="text-sm font-medium text-gray-300 ml-1">Full Name</label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                    <User className="w-5 h-5" />
+                    <User className="w-5 h-5" aria-hidden="true" />
                   </div>
                   <input 
                     type="text" 
                     placeholder="John Doe" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                    aria-label="Full Name"
+                    tabIndex={0}
                   />
                 </div>
               </div>
@@ -75,7 +77,7 @@ export default function JoinPage() {
               <label className="text-sm font-medium text-gray-300 ml-1">Email Address</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                  <Mail className="w-5 h-5" />
+                  <Mail className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <input 
                   type="email" 
@@ -84,6 +86,8 @@ export default function JoinPage() {
                   onChange={(e) => setEmailInput(e.target.value)}
                   placeholder="you@example.com" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                  aria-label="Email Address"
+                  tabIndex={0}
                 />
               </div>
             </div>
@@ -92,29 +96,31 @@ export default function JoinPage() {
               <label className="text-sm font-medium text-gray-300 ml-1">Password</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                  <Lock className="w-5 h-5" />
+                  <Lock className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <input 
                   type="password" 
                   required
                   placeholder="••••••••" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-3 pl-11 pr-4 text-white placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500/50 transition-all"
+                  aria-label="Password"
+                  tabIndex={0}
                 />
               </div>
             </div>
 
             {isLogin && (
               <div className="flex justify-end">
-                <a href="#" className="text-sm text-purple-400 hover:text-purple-300 transition-colors">
+                <a href="#" className="text-sm text-purple-400 hover:text-purple-300 transition-colors" aria-label="Forgot password?" tabIndex={0}>
                   Forgot password?
                 </a>
               </div>
             )}
 
-            <button type="submit" className="w-full group relative flex items-center justify-center gap-2 px-6 py-4 mt-6 bg-purple-600 text-white font-semibold rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(147,51,234,0.4)]">
+            <button type="submit" className="w-full group relative flex items-center justify-center gap-2 px-6 py-4 mt-6 bg-purple-600 text-white font-semibold rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(147,51,234,0.4)]" aria-label={isLogin ? 'Sign In' : 'Sign Up'} tabIndex={0}>
               <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
               <span className="relative">{isLogin ? 'Sign In' : 'Sign Up'}</span>
-              <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
             </button>
           </form>
 
@@ -125,6 +131,8 @@ export default function JoinPage() {
                 type="button"
                 onClick={() => setIsLogin(!isLogin)}
                 className="text-white font-medium hover:text-purple-400 transition-colors"
+                aria-label={isLogin ? 'Switch to Sign up' : 'Switch to Sign in'}
+                tabIndex={0}
               >
                 {isLogin ? 'Sign up' : 'Sign in'}
               </button>

@@ -5,17 +5,17 @@ import { CheckCircle2, Eye, BellRing, Zap } from 'lucide-react';
 
 const solutions = [
   {
-    icon: <Eye className="w-6 h-6 text-green-400" />,
+    icon: <Eye className="w-6 h-6 text-green-400" aria-hidden="true" />,
     title: 'See profit before you act',
     description: 'Our predictive models show you the expected value (EV) of every decision instantly.',
   },
   {
-    icon: <Zap className="w-6 h-6 text-green-400" />,
+    icon: <Zap className="w-6 h-6 text-green-400" aria-hidden="true" />,
     title: 'Real-time insights',
     description: 'Data updates by the millisecond, ensuring you always have the latest edge.',
   },
   {
-    icon: <BellRing className="w-6 h-6 text-green-400" />,
+    icon: <BellRing className="w-6 h-6 text-green-400" aria-hidden="true" />,
     title: 'Smart alerts',
     description: 'Get notified immediately when a high-profit opportunity arises.',
   },
@@ -37,7 +37,7 @@ export default function Solution() {
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-sm text-green-400 mb-6">
-              <CheckCircle2 className="w-4 h-4" />
+              <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
               The Solution
             </div>
             <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
@@ -85,7 +85,7 @@ export default function Solution() {
               <div className="flex items-center justify-between mb-8 pb-6 border-b border-white/10">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-white" />
+                    <Zap className="w-5 h-5 text-white" aria-hidden="true" />
                   </div>
                   <div>
                     <div className="text-white font-medium">Opportunity Detected</div>

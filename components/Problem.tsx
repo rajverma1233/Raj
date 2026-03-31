@@ -5,17 +5,17 @@ import { AlertTriangle, TrendingDown, XCircle } from 'lucide-react';
 
 const problems = [
   {
-    icon: <TrendingDown className="w-6 h-6 text-red-500" />,
+    icon: <TrendingDown className="w-6 h-6 text-red-500" aria-hidden="true" />,
     title: 'Losing money on random decisions',
     description: 'Relying on gut feeling instead of hard data leads to consistent losses over time.',
   },
   {
-    icon: <XCircle className="w-6 h-6 text-red-500" />,
+    icon: <XCircle className="w-6 h-6 text-red-500" aria-hidden="true" />,
     title: 'No data, only guessing',
     description: 'Without real-time analytics, you are flying blind in a highly competitive market.',
   },
   {
-    icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" aria-hidden="true" />,
     title: 'Missing profitable opportunities',
     description: 'By the time you spot a trend manually, the smart money has already moved on.',
   },

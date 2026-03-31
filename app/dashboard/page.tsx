@@ -116,7 +116,7 @@ export default function DashboardPage() {
       {alerts.filter(a => !a.read).length > 0 && (
         <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
           <div className="flex items-center gap-2 text-blue-400 font-medium mb-3">
-            <AlertTriangle className="w-5 h-5" />
+            <AlertTriangle className="w-5 h-5" aria-hidden="true" />
             Active Opportunities (Trial Limit: 5/day)
           </div>
           <div className="space-y-2">
@@ -126,6 +126,8 @@ export default function DashboardPage() {
                 <button 
                   onClick={() => markAlertRead(alert.id)}
                   className="text-zinc-500 hover:text-zinc-300 transition-colors"
+                  aria-label="Dismiss alert"
+                  tabIndex={0}
                 >
                   Dismiss
                 </button>
@@ -140,28 +142,28 @@ export default function DashboardPage() {
         <StatCard 
           title="Current EV %" 
           value={`${(currentEv * 100).toFixed(2)}%`} 
-          icon={<Activity className="w-5 h-5 text-blue-400" />}
+          icon={<Activity className="w-5 h-5 text-blue-400" aria-hidden="true" />}
           trend={currentEv > 0 ? 'up' : 'down'}
           color="blue"
         />
         <StatCard 
           title="Total EV Today" 
           value={`${(totalEvToday * 100).toFixed(2)}%`} 
-          icon={<Target className="w-5 h-5 text-purple-400" />}
+          icon={<Target className="w-5 h-5 text-purple-400" aria-hidden="true" />}
           trend={totalEvToday > 0 ? 'up' : 'down'}
           color="purple"
         />
         <StatCard 
           title="Live Profit / Loss" 
           value={`$${liveProfitLoss.toFixed(2)}`} 
-          icon={<DollarSign className="w-5 h-5 text-green-400" />}
+          icon={<DollarSign className="w-5 h-5 text-green-400" aria-hidden="true" />}
           trend={liveProfitLoss >= 0 ? 'up' : 'down'}
           color={liveProfitLoss >= 0 ? 'green' : 'red'}
         />
         <StatCard 
           title="Total Bets Count" 
           value={totalBetsCount} 
-          icon={<TrendingUp className="w-5 h-5 text-zinc-400" />}
+          icon={<TrendingUp className="w-5 h-5 text-zinc-400" aria-hidden="true" />}
           color="zinc"
         />
       </div>
@@ -197,6 +199,9 @@ export default function DashboardPage() {
                 ? 'bg-zinc-100 text-zinc-900' 
                 : 'bg-zinc-900/50 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-200 border border-zinc-800/50'
             }`}
+            aria-label={`Filter by ${filter.label}`}
+            aria-pressed={timeFilter === filter.value}
+            tabIndex={0}
           >
             {filter.label}
           </button>
@@ -253,7 +258,7 @@ export default function DashboardPage() {
         <div className="bg-zinc-900/50 border border-zinc-800/50 rounded-xl overflow-hidden flex flex-col">
           <div className="p-4 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/80">
             <h3 className="font-semibold flex items-center gap-2">
-              <Clock className="w-4 h-4 text-blue-400" />
+              <Clock className="w-4 h-4 text-blue-400" aria-hidden="true" />
               Open Bets
             </h3>
             <span className="text-xs bg-zinc-800 px-2 py-1 rounded-full text-zinc-300">{liveData.length} Active</span>
@@ -299,7 +304,7 @@ export default function DashboardPage() {
         <div className="bg-zinc-900/50 border border-zinc-800/50 rounded-xl overflow-hidden flex flex-col">
           <div className="p-4 border-b border-zinc-800/50 flex justify-between items-center bg-zinc-900/80">
             <h3 className="font-semibold flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-zinc-400" />
+              <CheckCircle2 className="w-4 h-4 text-zinc-400" aria-hidden="true" />
               Closed Bets
             </h3>
             <span className="text-xs bg-zinc-800 px-2 py-1 rounded-full text-zinc-300">{chartData.filter(b => b.status === 'Closed').length} Settled</span>
@@ -324,11 +329,11 @@ export default function DashboardPage() {
                     <td className="px-4 py-3">
                       {bet.profit > 0 ? (
                         <span className="inline-flex items-center gap-1 text-green-400 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5" /> Won
+                          <CheckCircle2 className="w-3.5 h-3.5" aria-hidden="true" /> Won
                         </span>
                       ) : (
                         <span className="inline-flex items-center gap-1 text-red-400 font-medium">
-                          <XCircle className="w-3.5 h-3.5" /> Lost
+                          <XCircle className="w-3.5 h-3.5" aria-hidden="true" /> Lost
                         </span>
                       )}
                     </td>
@@ -376,7 +381,7 @@ function StatCard({ title, value, icon, trend, color }: { title: string, value: 
         <div className="text-3xl font-bold tracking-tight">{value}</div>
         {trend && (
           <div className={`flex items-center text-xs font-medium ${trend === 'up' ? 'text-green-400' : 'text-red-400'}`}>
-            {trend === 'up' ? <ArrowUpRight className="w-3 h-3" /> : <ArrowDownRight className="w-3 h-3" />}
+            {trend === 'up' ? <ArrowUpRight className="w-3 h-3" aria-hidden="true" /> : <ArrowDownRight className="w-3 h-3" aria-hidden="true" />}
           </div>
         )}
       </div>

@@ -72,7 +72,7 @@ export default function LivePreview() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-sm text-blue-400 mb-6">
-            <Activity className="w-4 h-4 animate-pulse" />
+            <Activity className="w-4 h-4 animate-pulse" aria-hidden="true" />
             Live Data Feed
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
@@ -103,7 +103,7 @@ export default function LivePreview() {
                 <div className="w-3 h-3 rounded-full bg-green-500/80" />
               </div>
               <div className="text-gray-400 text-sm font-medium flex items-center gap-2">
-                <Zap className="w-4 h-4 text-yellow-400" />
+                <Zap className="w-4 h-4 text-yellow-400" aria-hidden="true" />
                 Live Opportunities
               </div>
             </div>
@@ -133,7 +133,7 @@ export default function LivePreview() {
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
                       pack.trend === 'up' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'
                     }`}>
-                      {pack.trend === 'up' ? <TrendingUp className="w-5 h-5" /> : <TrendingDown className="w-5 h-5" />}
+                      {pack.trend === 'up' ? <TrendingUp className="w-5 h-5" aria-hidden="true" /> : <TrendingDown className="w-5 h-5" aria-hidden="true" />}
                     </div>
                     <span className="text-white font-medium">{pack.name}</span>
                   </div>
@@ -161,7 +161,7 @@ export default function LivePreview() {
                   </div>
                   
                   <div className="col-span-2 text-right flex items-center justify-end gap-1 text-gray-500 text-sm">
-                    <Clock className="w-4 h-4" />
+                    <Clock className="w-4 h-4" aria-hidden="true" />
                     {pack.time}
                   </div>
                 </motion.div>
@@ -173,7 +173,7 @@ export default function LivePreview() {
         {/* Live Alerts Queue */}
         <div className="max-w-5xl mx-auto mt-8">
           <div className="flex items-center gap-2 mb-4 text-gray-400 text-sm font-medium px-2">
-            <Activity className="w-4 h-4 text-blue-400" />
+            <Activity className="w-4 h-4 text-blue-400" aria-hidden="true" />
             Recent Market Activity
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 overflow-hidden">
@@ -196,7 +196,7 @@ export default function LivePreview() {
                     <div className={`w-6 h-6 rounded flex items-center justify-center ${
                       alert.trend === 'up' ? 'bg-green-500/10 text-green-400' : 'bg-red-500/10 text-red-400'
                     }`}>
-                      {alert.trend === 'up' ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
+                      {alert.trend === 'up' ? <TrendingUp className="w-3 h-3" aria-hidden="true" /> : <TrendingDown className="w-3 h-3" aria-hidden="true" />}
                     </div>
                     <span className={`text-sm font-bold ${alert.trend === 'up' ? 'text-green-400' : 'text-red-400'}`}>
                       {alert.trend === 'up' ? '+' : '-'}{alert.profit}% EV
