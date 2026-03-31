@@ -15,6 +15,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://i.ibb.co" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://i.ibb.co" />
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
@@ -25,7 +27,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
                   where: {
                     and: [{ href_matches: "/*" }]
                   },
-                  eagerness: "moderate"
+                  eagerness: "eager"
                 }
               ]
             })
