@@ -98,7 +98,7 @@ export default function Header() {
                 {!isLoggedIn && (
                   <>
                     <div className="h-px w-full bg-white/10 my-1" role="separator" />
-                    <Link href="/dashboard" onClick={() => setIsMenuOpen(false)} tabIndex={-1}>
+                    <Link href="/join" onClick={() => setIsMenuOpen(false)} tabIndex={-1}>
                       <button 
                         className="w-full group relative inline-flex items-center justify-center gap-2 px-6 py-3 bg-purple-600 text-white font-semibold rounded-xl overflow-hidden transition-all hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(147,51,234,0.4)]"
                         aria-label="Join Now"

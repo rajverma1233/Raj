@@ -29,15 +29,15 @@ export default function CTA() {
               Live EV data, zero guessing.
             </p>
 
-            <Link
-              href="/checkout"
+            <a
+              href="mailto:rajverma123orai@gmail.com"
               className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg rounded-xl overflow-hidden shadow-[0_0_30px_rgba(168,85,247,0.3)] hover:shadow-[0_0_50px_rgba(168,85,247,0.5)] transition-all"
-              aria-label="Join Now and go to checkout"
+              aria-label="Contact Us via Email"
               tabIndex={0}
             >
-              <span className="relative">Join Now</span>
+              <span className="relative">Contact Us</span>
               <ArrowRight className="relative w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
