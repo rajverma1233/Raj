@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: 'Pulzo Live | Real-Time EV Tracking & Smart Data Analytics',
   description: 'Experience Pulzo Live: The ultimate high-fidelity dashboard for real-time EV tracking, live charts, and smart odds with pixel-perfect data analytics. Optimized for 0.1s speed and 11k+ edge requests.',
   keywords: 'EV Tracking, Live EV Charts, Smart Odds, Data Analytics, Pulzo Live, Real-time EV Alerts, High Performance Dashboard',
+  applicationName: 'Pulzo Live',
+  manifest: '/manifest.json',
+  openGraph: {
+    siteName: 'Pulzo Live',
+  },
+  other: {
+    "site_name": "Pulzo Live"
+  },
   icons: {
     icon: 'https://i.ibb.co/KjB27cBN/9920738.png',
   },
@@ -19,6 +27,17 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Pulzo Live",
+              "url": "https://pulzolive.vercel.app/"
+            })
+          }}
+        />
         <link rel="preconnect" href="https://i.ibb.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://i.ibb.co" />
         <script
